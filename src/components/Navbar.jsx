@@ -19,6 +19,7 @@ const Navbar = ({ menuIdx }) => {
   const handleLoginSuccess = useCallback(
     (response) => {
       const decoded = jwtDecode(response.credential);
+      localStorage.setItem("authData", JSON.stringify(decoded)); // 로그인 정보 저장
       dispatch(login({ authData: decoded }));
       setIsAuthentication(true);
     },
@@ -49,6 +50,7 @@ const Navbar = ({ menuIdx }) => {
   };
 
   const handleLogoutClick = () => {
+    localStorage.removeItem("authData"); // 로컬 스토리지에서 로그인 정보 제거
     dispatch(logout());
     setIsAuthentication(false);
   };
