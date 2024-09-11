@@ -50,9 +50,16 @@ const Navbar = ({ menuIdx }) => {
   };
 
   const handleLogoutClick = () => {
-    localStorage.removeItem("authData"); // 로컬 스토리지에서 로그인 정보 제거
     dispatch(logout());
     setIsAuthentication(false);
+
+    // 로컬 스토리지에서 로그인 정보 제거
+    localStorage.removeItem("authData");
+
+    window.google.accounts.id.initialize({
+      client_id: googleClientId,
+      callback: handleLoginSuccess,
+    });
   };
 
   return (
