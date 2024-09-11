@@ -66,7 +66,7 @@ const Navbar = ({ menuIdx }) => {
     <nav className="navi bg-[#212121] w-1/5 h-full rounded-sm border border-gray-500 py-10 px-4 flex flex-col justify-between items-center">
       <div className="logo-wrapper flex w-full items-center justify-center gap-8">
         <div className="logo"></div>
-        <h2 className="font-semibold text-[22px]">
+        <h2 className="font-semibold text-xl">
           <Link to="/" className="font-customFontEn">
             JU22HY
           </Link>
